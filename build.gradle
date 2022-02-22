@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+    id 'java-library'
+    id 'maven-publish'
+}
+
+group 'org.panda-lang.utilities'
+version '1.0.0-test'
+artifacts
+
+repositories {
+    mavenCentral()
+    maven { url 'https://repo.panda-lang.org/releases' }
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+dependencies {
+    implementation 'org.panda-lang:expressible:1.1.16'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+java {
+    withSourcesJar()
+}
+
+publishing {
+    repositories {
+        mavenLocal()
+    }
+
+    publications {
+        libraries(MavenPublication) {
+            artifactId = "light-di"
+            from components.java
+        }
+    }
+}
