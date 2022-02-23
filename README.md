@@ -1,2 +1,2 @@
 # panda-light-di 
-(my light verion of panda dependency injector) [with out generate metod]
+(my light version of panda dependency injector, without generating method)
